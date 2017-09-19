@@ -8,3 +8,4 @@ jdk:
 script:
   - gradle test
   - gradle dependencyUpdates -Drevision=release
+
