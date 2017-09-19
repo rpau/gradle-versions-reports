@@ -5,9 +5,6 @@ jdk:
   - openjdk7
   - oraclejdk8
 
-env:
-  - TERM=dumb
-
 script:
   - gradle test
   - gradle dependencyUpdates -Drevision=release
