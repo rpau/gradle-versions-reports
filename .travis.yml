@@ -1,9 +1,9 @@
 language: java
 
 jdk:
-  - openjdk7
+  - openjdk8
 
 script:
-  - gradle test
-  - gradle dependencyUpdates -Drevision=release
+  - JAVA_HOME=$(jdk_switcher home openjdk8) ./gradlew test
+  - JAVA_HOME=$(jdk_switcher home openjdk8) ./gradlew dependencyUpdates -Drevision=release
 
