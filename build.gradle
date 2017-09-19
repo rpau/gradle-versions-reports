@@ -18,6 +18,7 @@ buildscript {
   dependencies {
     classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
   }
+  
 }
 
 // In this section you declare where to find the dependencies of your project
@@ -35,3 +36,6 @@ dependencies {
     testCompile 'junit:junit:4.11'
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
+  }
