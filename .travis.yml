@@ -5,5 +5,8 @@ jdk:
 
 script:
   - JAVA_HOME=$(jdk_switcher home openjdk8) ./gradlew test
-  - JAVA_HOME=$(jdk_switcher home openjdk8) ./gradlew dependencyUpdates -Drevision=release
+  - JAVA_HOME=$(jdk_switcher home openjdk8) ./gradlew dependencyUpdates -Drevision=release -DoutputFormatter=json
 
+after_success:
+    "curl --ftp-create-dirs -T build/dependencyUpdates/report.json -u rpau:$FTP_PASSWORD https://api.bintray.com/content/rpau/version-dumping/gradle-versions-reports/1.0/rpau/ gradle-versions-reports
+/reports.json"
